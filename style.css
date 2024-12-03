@@ -1,0 +1,121 @@
+/* Estilo global */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+
+/* Header */
+header {
+    background-color: transparent;
+    color: white;
+    padding: 1rem 3.5rem;
+   
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre el logo y el menú */
+    align-items: center; /* Alineación vertical */
+}
+
+/* Menú */
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Coloca los elementos en fila */
+    gap: 2rem; /* Espaciado entre los enlaces */
+}
+
+.menu li {
+    display: inline;
+}
+
+
+.menu a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem; /* Espaciado alrededor del texto */
+    border-radius: 30px; /* Bordes redondeados */
+    border: 3px solid white;
+    transition: background-color 0.3s, color 0.3s; /* Animación para el cambio de fondo y color */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+#inicio {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url('assets/fondo1.png'); /* Gradiente con fondo */
+    background-size: cover; /* Asegura que cubra el viewport */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Altura igual al viewport */
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    color: #fff;
+    font-size: 2rem;
+    justify-content: space-between; /* Asegura que el footer se empuje al final */
+   
+}
+
+.menu a:hover {
+    color: #ffcc00; /* Cambia el color al pasar el mouse */
+}
+
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column; /* Apila el logo y el menú */
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column; /* Apila las secciones del menú */
+        gap: 1rem;
+    }
+}
+
+/* Logo */
+.logo img {
+    height: auto; /* Ajusta según el tamaño deseado */
+    max-width: 30%; /* Asegura que no se desborde */
+    display: block;
+}
+/* Footer especial para el texto e ícono */
+.footer-special {
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem; /* Espaciado entre texto e ícono */
+    padding: 1rem;
+    z-index: 1000; /* Asegura que esté encima de otras secciones */
+    margin-bottom: 2rem;
+    padding: 1rem 3.5rem;
+
+}
+
+.footer-special .text {
+    font-size: 5rem; /* Tamaño grande para el texto */
+    font-weight: bold;
+}
+
+
+.footer-special .whatsapp-icon img {
+    max-width: 100%; /* Asegura que las imágenes no se desborden */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+
