@@ -14,6 +14,13 @@ header {
    
 }
 
+h2 {
+    color: #F57E34; /* Color del texto */
+    font-size: clamp(24px, 5vw, 64px); /* Tamaño fluido: mínimo 24px, máximo 64px */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin: 1rem 0; /* Espaciado vertical */
+}
+
 .container {
     display: flex;
     justify-content: space-between; /* Espaciado entre el logo y el menú */
@@ -54,11 +61,9 @@ header {
 html{
     scroll-behavior: smooth;
 }
+
 #inicio {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url('assets/fondo1.png'); /* Gradiente con fondo */
-    background-size: cover; /* Asegura que cubra el viewport */
-    background-position: center;
-    background-repeat: no-repeat;
     height: 100vh; /* Altura igual al viewport */
     width: 100%;
     display: flex;
@@ -67,6 +72,34 @@ html{
     font-size: 2rem;
     justify-content: space-between; /* Asegura que el footer se empuje al final */
    
+}
+
+#nosotros {
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    padding: 80px 0 0 0;
+}
+
+#servicios {
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    padding: 80px 60px 0 60px;
+}
+
+#contacto {
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    padding: 80px 0 0 0;
+}
+
+#socios {
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    padding: 80px 0 0 0;
 }
 
 .menu a:hover {
@@ -89,9 +122,18 @@ html{
 /* Logo */
 .logo img {
     height: auto; /* Ajusta según el tamaño deseado */
-    max-width: 30%; /* Asegura que no se desborde */
+    max-width: 250px; /* Asegura que no se desborde */
     display: block;
 }
+
+@media (max-width: 768px) {
+    .logo img {
+        max-width: 150px; /* Reduce el tamaño en pantallas pequeñas */
+    }
+}
+
+
+
 /* Footer especial para el texto e ícono */
 .footer-special {
     width: 100%; /* Ocupa todo el ancho de la ventana */
@@ -108,8 +150,8 @@ html{
 }
 
 .footer-special .text {
-    font-size: 5rem; /* Tamaño grande para el texto */
     font-weight: bold;
+    font-size: clamp(1.3rem, 5vw, 5rem);
 }
 
 
@@ -118,4 +160,108 @@ html{
     height: auto; /* Mantiene la relación de aspecto */
 }
 
+.container-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #202A45;
+    padding: 30px 20px;
+    width: 100%;
+}
 
+.container-image {
+    position: relative; /* Establece el contenedor como relativo para posicionar el texto dentro de él */
+    width: 100%;
+    height: 100vh; /* Altura igual al viewport */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container-image img {
+    width: 100%;
+    height: 100%; /* Asegura que la imagen ocupe toda el área del contenedor */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+}
+
+.container-image p {
+    position: absolute; /* Permite posicionar el texto respecto al contenedor */
+    top: 20px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde la parte derecha */
+    color: white; /* Color del texto */
+    margin: 40px 80px; /* Espaciado interno */
+    font-weight: bold;
+    text-align: right; /* Alinea el texto a la derecha */
+    max-width: 700px;
+    z-index: 10; /* Asegura que el texto esté encima de la imagen */
+    font-size: clamp(1.3rem, 5vw, 5rem);
+}
+
+.card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    flex: 1;
+    margin: 0 15px;
+}
+
+.card img.icon {
+ 
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white; /* Color naranja para los títulos */
+    border: 2px solid #FF6600; /* Borde naranja */
+    display: inline-block;
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 30px; /* Bordes redondeados */
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    color: white;
+}
+
+.servicios-list {
+    display: flex;
+    justify-content: space-between; /* Centra las columnas horizontalmente */
+    margin: 0 auto;
+    max-width: 900px;
+    flex-wrap: wrap; /* Permite que las columnas se ajusten en pantallas pequeñas */
+}
+
+.columna {
+    text-align: left; /* Alinea el texto dentro de cada columna a la izquierda */
+}
+
+.columna p {
+    color: #202940; /* Color del texto */
+    font-size: 18px;
+    margin: 30px 0; /* Espaciado vertical entre líneas */
+    position: relative;
+    padding-left: 20px; /* Deja espacio para el ícono del punto */
+}
+
+.columna p::before {
+    content: '•'; /* Punto como marcador */
+    color: #202940; /* Color del punto */
+    position: absolute;
+    left: 0; /* Coloca el punto a la izquierda del texto */
+    font-size: 60px; /* Aumenta el tamaño del punto */
+    line-height: 1; /* Asegura que el punto esté alineado verticalmente con el texto */
+    top: 50%; /* Posiciona el punto verticalmente */
+    transform: translateY(-50%); /* Centra el punto respecto al texto */
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 768px) {
+    .servicios-list {
+        flex-direction: column; /* Cambia a una sola columna */
+    }
+}
