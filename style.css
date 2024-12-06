@@ -7,11 +7,29 @@ body {
 
 
 /* Header */
+/*
 header {
     background-color: transparent;
     color: white;
     padding: 1rem 3.5rem;
    
+}*/
+header {
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 0.5rem 3.5rem; /* Ajusta el padding */
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    z-index: 1000; /* Asegura que esté encima del contenido */
+}
+
+/* Cuando el header tiene la clase "scrolled" */
+header.scrolled {
+    background-color: #202A45; /* Cambia el color del fondo */
+    padding: 0.5rem 3.5rem; /* Ajusta el padding */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 h2 {
@@ -55,8 +73,6 @@ h2 {
 .menu a:hover {
     color: #ffcc00; /* Cambia el color al pasar el mouse */
 }
-
-
 
 
 /* Menú responsive*/
@@ -252,18 +268,33 @@ html{
 
 
 /* Footer especial para el texto e ícono */
+/*
 .footer-special {
-    width: 100%; /* Ocupa todo el ancho de la ventana */
+    width: 100%; 
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem; /* Espaciado entre texto e ícono */
+    gap: 1rem; 
     padding: 1rem;
-    z-index: 1000; /* Asegura que esté encima de otras secciones */
+    z-index: 1000;
     margin-bottom: 2rem;
     padding: 1rem 3.5rem;
+} 
+*/
 
+/* Footer Special */
+.footer-special {
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 3.5rem;
+    z-index: 10;
+    position: absolute; /* Posición absoluta respecto al contenedor padre */
+    bottom: 0; /* Fijado en la parte inferior del contenedor padre */
 }
 
 .footer-special .text {
@@ -619,7 +650,7 @@ html{
 .carousel-certificaciones {
     width: 100%; /* Ocupa todo el ancho */
     background-color: #1A2945; /* Azul oscuro */
-    padding: 50px 80px;
+    padding: 80px;
     position: relative;
     overflow: hidden;
 }

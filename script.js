@@ -188,3 +188,18 @@ menuLinks2.forEach(link => {
         nav.classList.remove('active'); // Oculta el menú al hacer clic en un enlace
     });
 });
+
+
+
+// Selecciona el header
+const header = document.querySelector('header');
+
+// Escucha el evento de scroll
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) { // Cambia el valor si quieres que el cambio ocurra antes o después
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
