@@ -52,6 +52,140 @@ h2 {
     transition: background-color 0.3s, color 0.3s; /* Animación para el cambio de fondo y color */
 }
 
+.menu a:hover {
+    color: #ffcc00; /* Cambia el color al pasar el mouse */
+}
+
+
+
+
+/* Menú responsive*/
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Menú desplegable en pantallas pequeñas */
+.menu {
+    display: flex; /* El menú estará visible en pantallas grandes */
+    gap: 2rem; /* Espaciado entre elementos */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Asegura que no se posicione como menú móvil */
+    background: none; /* Fondo transparente */
+    height: auto; /* Ajusta automáticamente su altura */
+}
+
+.menu.active {
+    display: flex; /* Muestra el menú al activar */
+}
+
+.menu a {
+    font-size: 1.5rem; /* Tamaño del texto del menú en pantallas pequeñas */
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+}
+
+/* Fondo semitransparente oscuro */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.301); /* Fondo oscuro */
+    z-index: 900; /* Debajo del menú */
+}
+
+.menu-overlay.active {
+    display: block; /* Activa el fondo oscuro */
+}
+
+/* Estilo inicial del nav (oculto en móviles) */
+nav {
+    display: flex; /* Muestra el menú en pantallas grandes */
+    align-items: center;
+    gap: 2rem; /* Espaciado entre elementos */
+}
+
+
+/* Mostrar el botón hamburguesa en pantallas pequeñas */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: flex; /* Mostrar botón hamburguesa */
+    }
+
+    /* Estilo cuando el menú está activo */
+    nav.active {
+        display: flex; /* Muestra el menú en móviles */
+    }
+
+    /* Enlaces del menú */
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        text-align: center;
+        transition: color 0.3s;
+    }
+
+    nav {
+        display: none; /* Oculta el menú inicialmente en pantallas pequeñas */
+        flex-direction: column; /* Los elementos estarán en columna */
+        position: fixed; /* Para que ocupe toda la pantalla */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.356); /* Fondo oscuro */
+        justify-content: center; /* Centra los enlaces verticalmente */
+        align-items: center; /* Centra los enlaces horizontalmente */
+        z-index: 1002;
+    }
+
+    nav a:hover {
+        color: #ffcc00; /* Cambia el color al pasar el mouse */
+    }
+
+    
+    .menu {
+        display: none; /* Ocultar en pantallas pequeñas inicialmente */
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh; /* Ocupa toda la altura */
+        width: 100%; /* Ocupa toda la anchura */
+        flex-direction: column; /* Coloca los enlaces en columna */
+        justify-content: center; /* Centra los enlaces verticalmente */
+        align-items: center; /* Centra los enlaces horizontalmente */
+        z-index: 1000;
+    }
+
+    .menu.active {
+        display: flex; /* Muestra el menú al activar */
+    }
+}
+
+/* Menú responsive*/
+
+
 *{
     margin: 0;
     padding: 0;
@@ -64,6 +198,9 @@ html{
 
 #inicio {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url('assets/fondo1.png'); /* Gradiente con fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh; /* Altura igual al viewport */
     width: 100%;
     display: flex;
@@ -85,39 +222,19 @@ html{
     width: 100%;
     overflow: hidden;
     margin: auto;
-    padding: 80px 60px 0 60px;
+    padding: 80px 0 0 0px;
 }
 
-#contacto {
-    width: 100%;
-    overflow: hidden;
-    margin: auto;
-    padding: 80px 0 0 0;
-}
+
 
 #socios {
     width: 100%;
     overflow: hidden;
     margin: auto;
-    padding: 80px 0 0 0;
-}
-
-.menu a:hover {
-    color: #ffcc00; /* Cambia el color al pasar el mouse */
+    padding: 80px 50px 80px 50px;
 }
 
 
-@media (max-width: 1024px) {
-    .container {
-        flex-direction: column; /* Apila el logo y el menú */
-        align-items: center;
-    }
-
-    .menu {
-        flex-direction: column; /* Apila las secciones del menú */
-        gap: 1rem;
-    }
-}
 
 /* Logo */
 .logo img {
@@ -159,6 +276,7 @@ html{
     max-width: 100%; /* Asegura que las imágenes no se desborden */
     height: auto; /* Mantiene la relación de aspecto */
 }
+/*
 
 .container-card {
     display: flex;
@@ -167,7 +285,43 @@ html{
     background-color: #202A45;
     padding: 30px 20px;
     width: 100%;
+}*/
+
+.container-card {
+    display: flex; /* Utiliza flexbox para organizar las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 20px; /* Espaciado entre las tarjetas */
+    background-color: #202A45;
+    padding: 20px; /* Añade un poco de espacio interno */
 }
+
+/* Estilo para las tarjetas individuales */
+.card {
+    flex: 1 1 calc(33.33% - 40px); /* Ocupa un tercio del ancho con márgenes */
+    max-width: calc(33.33% - 40px); /* Máximo un tercio del contenedor */
+    text-align: center; /* Centra el contenido */
+    background: #202A45; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    color: white; /* Color del texto */
+}
+
+/* Adaptación para pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+    .card {
+        flex: 1 1 calc(50% - 40px); /* Ocupa la mitad del ancho */
+        max-width: calc(50% - 40px);
+    }
+}
+
+/* Adaptación para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%; /* Ocupa todo el ancho disponible */
+        max-width: 100%;
+    }
+}
+
 
 .container-image {
     position: relative; /* Establece el contenedor como relativo para posicionar el texto dentro de él */
@@ -207,7 +361,8 @@ html{
 }
 
 .card img.icon {
- 
+    width: 130px;
+    height: auto;
 }
 
 .card h3 {
@@ -221,6 +376,18 @@ html{
     border-radius: 30px; /* Bordes redondeados */
 }
 
+.nosotros.description p {
+    max-width: 1300px; /* Ancho máximo */
+    margin: 0 auto; /* Centra horizontalmente el párrafo */
+    text-align: center; /* Alinea el texto al centro */
+    padding: 20px; /* Opcional: Espaciado interno para mejor legibilidad */
+    font-size: 1.2rem; /* Opcional: Ajusta el tamaño de fuente */
+    line-height: 1.6; /* Opcional: Mejora el espaciado entre líneas */
+}
+.nosotros.description{
+    margin: 40px 20px 80px 20px;
+}
+
 .card p {
     font-size: 16px;
     line-height: 1.5;
@@ -231,13 +398,15 @@ html{
 .servicios-list {
     display: flex;
     justify-content: space-between; /* Centra las columnas horizontalmente */
-    margin: 0 auto;
+    margin: 40px  auto 80px auto ;
     max-width: 900px;
+    padding: 0 60px 0  60px;
     flex-wrap: wrap; /* Permite que las columnas se ajusten en pantallas pequeñas */
 }
 
 .columna {
     text-align: left; /* Alinea el texto dentro de cada columna a la izquierda */
+   
 }
 
 .columna p {
@@ -263,5 +432,411 @@ html{
 @media (max-width: 768px) {
     .servicios-list {
         flex-direction: column; /* Cambia a una sola columna */
+    }
+}
+
+
+/*servicios*/
+#servicios-description {
+    display: flex; /* Organiza el texto y la imagen en dos columnas */
+    align-items: center; /* Centra los elementos verticalmente */
+    
+    background-color: #f9f9f9; /* Fondo claro */
+    position: relative; /* Permite posicionar el triángulo decorativo */
+    overflow: hidden; /* Oculta cualquier contenido que salga del contenedor */
+}
+
+#servicios-description img {
+    width: 55%; /* La imagen ocupa el 50% del espacio disponible */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    object-fit: cover; /* Asegura que la imagen se recorte correctamente */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+}
+
+#servicios-description-box {
+    width: 50%; /* El texto ocupa el otro 50% */
+    padding: 0 50px;
+}
+
+#servicios-description-box h3 {
+    font-size: clamp(24px, 5vw, 64px);
+    color: #202940; /* Color del título */
+    margin-bottom: 20px; /* Espaciado inferior */
+    font-weight: 700; /* Peso del texto */
+    text-align: center;
+    padding: 0 50px ;
+}
+
+#servicios-description-box p {
+    font-size: 1rem; /* Tamaño del texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #333; /* Color del texto */
+    text-align: justify; /* Alineación justificada */
+}
+
+
+
+/* Aseguramos que el contenido esté por encima del triángulo decorativo */
+#servicios-description img,
+#servicios-description-box {
+    position: relative;
+    z-index: 2;
+    
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 768px) {
+    #servicios-description {
+        flex-direction: column; /* Cambia a diseño de una sola columna */
+        text-align: center; /* Centra el contenido */
+    }
+
+    #servicios-description img {
+        width: 100%; /* La imagen ocupa todo el ancho */
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    #servicios-description-box {
+        width: 100%; /* El texto ocupa todo el ancho */
+    }
+}
+
+
+/* proyecto */
+
+#proyectos {
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    padding: 80px 0 0 0;
+}
+
+
+.carousel {
+    position: relative;
+    overflow: hidden; /* Oculta las tarjetas que están fuera del área visible */
+    width: 80%;
+    margin: 0 auto 40px auto;;
+}
+
+.proyectos-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.proyecto-card {
+    flex: 0 0 calc(50% - 10px); /* Cada tarjeta ocupa la mitad del ancho con un pequeño gap */
+    max-width: calc(50% - 10px);
+    margin: 0 10px; /* Espaciado entre tarjetas */
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.proyecto-info {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Altura fija para mantener la proporción */
+    overflow: hidden;
+}
+
+.proyecto-info img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.proyecto-info h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px 35px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    text-align: center;
+}
+
+.proyecto-card > p {
+    padding: 15px 50px;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.proyectos-button {
+    top: -50px; /* Coloca los botones arriba del contenedor */
+    right: 10px; /* Alinea los botones al lado derecho */
+    display: flex;
+    margin: 20px 0px 20px 20px;
+    justify-content: flex-end;
+    gap: 10px; /* Espaciado entre los botones */
+    z-index: 10; /* Asegura que los botones estén sobre el contenido */
+}
+
+.control {
+    background: none; /* Fondo transparente */
+    border: 2px solid #555; /* Borde gris oscuro */
+    border-radius: 50%; /* Forma circular */
+    font-size: 18px; /* Tamaño de la flecha */
+    color: #555; /* Color del texto/flecha */
+    width: 40px; /* Ancho del botón */
+    height: 40px; /* Altura del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Cambia el cursor al pasar */
+    transition: all 0.3s ease; /* Transición suave */
+}
+.control:hover {
+    background: #ff6600;
+    color: #fff;
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    .proyecto-card {
+        flex: 0 0 calc(100% - 10px); /* Cambia a una tarjeta visible */
+        max-width: calc(100% - 10px);
+    }
+
+    .control.prev {
+        left: 10px;
+    }
+
+    .control.next {
+        right: 10px;
+    }
+}
+
+
+/* carrusel certificaciones */
+
+
+.carousel-certificaciones {
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: #1A2945; /* Azul oscuro */
+    padding: 50px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-certificaciones h3 {
+    color: #FFFFFF; /* Blanco */
+    text-align: center;
+    font-size: clamp(24px, 5vw, 44px);
+     margin-bottom: 20px;
+}
+
+.certificaciones-button {
+    display: flex;
+    gap: 10px; /* Espaciado entre botones */
+    z-index: 10;
+    margin: 10px 90px;
+    margin: 25px;
+    justify-content: flex-end;
+}
+
+.certificaciones-button .control {
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid #FFFFFF; /* Borde blanco */
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.certificaciones-button .control:hover {
+    background-color: #FFFFFF; /* Blanco */
+    color: #1A2945; /* Azul oscuro */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+.certificacion-container {
+    display: flex;
+    gap: 20px; /* Espaciado entre tarjetas */
+    transition: transform 0.5s ease-in-out; /* Transición suave */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.certificacion-card {
+    flex: 0 0 calc(33.33% - 20px); /* Tres tarjetas visibles en pantallas grandes */
+    max-width: calc(33.33% - 20px);
+    overflow: hidden;
+    height: 300px; /* Altura fija */
+}
+
+.certificacion-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta las imágenes dentro del contenedor */
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .certificacion-card {
+        flex: 0 0 calc(50% - 20px); /* Dos tarjetas visibles */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .certificacion-card {
+        flex: 0 0 calc(100% - 20px); /* Una tarjeta visible */
+        max-width: calc(100% - 20px);
+    }
+}
+
+
+/*socios */
+
+
+/* Estilos para la sección de socios */
+.socios-container {
+    display: grid; /* Utiliza grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+    gap: 20px; /* Espaciado entre los elementos */
+    padding: 20px 80px; /* Espaciado interno para el contenedor */
+    justify-items: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+.socios-card {
+    width: 230px; /* Ancho fijo para cada tarjeta */
+    height: 230px; /* Altura fija para cada tarjeta */
+    display: flex; /* Utiliza flexbox para centrar la imagen */
+    align-items: center; /* Centra la imagen verticalmente */
+    justify-content: center; /* Centra la imagen horizontalmente */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+}
+
+.socios-card img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    max-height: 100%; /* Asegura que la imagen no exceda la altura del contenedor */
+    object-fit: contain; /* Ajusta la imagen para que no se distorsione */
+    padding: 10px; /* Espaciado interno */
+}
+
+
+/* Responsividad para pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+    .socios-container {
+        grid-template-columns: repeat(2, 1fr); /* Cambia a dos columnas */
+    }
+
+    .socios-card {
+        width: 220px; /* Ajusta el tamaño de las tarjetas */
+        height: 220px;
+    }
+}
+
+#socios p {
+    font-size: 1.2rem; /* Cambia el tamaño del texto */
+    color: #333; /* Cambia el color del texto (opcional) */
+    text-align: center; /* Alinea el texto al centro */
+    margin-bottom: 20px; /* Añade espacio debajo del párrafo */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+
+/* Responsividad para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .socios-container {
+        grid-template-columns: repeat(1, 1fr); /* Cambia a una columna */
+        display: block;
+    }
+
+    .socios-card {
+        width: 200px; /* Reduce el tamaño de las tarjetas */
+        height: 200px;
+    }
+}
+
+
+/*footer*/
+
+/* Footer General */
+.footer {
+    background-color: #1A2945; /* Azul oscuro */
+    color: white;
+    padding: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer-logo img {
+    width: 100%; /* El tamaño será mínimo 100px, máximo 200px, y adaptado al 20% del ancho de la pantalla */
+    height: 100%; /* Mantiene las proporciones */
+}
+
+.footer-logo {
+    width: clamp(150px, 20vw, 200px); /* El tamaño será mínimo 100px, máximo 200px, y adaptado al 20% del ancho de la pantalla */
+    height: auto;
+
+}
+
+.footer-logo h2 {
+    color: #F57E34; /* Naranja */
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Contact Section */
+.footer-contact {
+    text-align: right;
+}
+
+.footer-contact h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer-contact p {
+    font-size: 1rem;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.footer-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
+
+    .footer-logo h2 {
+        text-align: center;
     }
 }

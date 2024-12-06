@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Barlum</title>
+    <title>Barlum</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -14,6 +14,11 @@
                 <a href="#inicio" class="logo">
                     <img src="assets/logo3.png" alt="Logo de la página">
                 </a>
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <nav>
                     <ul class="menu">
                         <li><a href="#nosotros">Nosotros</a></li>
@@ -34,8 +39,12 @@
     
     <main>
         <section id="nosotros">
+        
             <h2>Sobre nosotros</h2>
-            <p>Somos una empresa líder en el campo de la Ingeniería y Arquitectura; nos dedicamos a la asesoría y gerencia de proyectos; y la realización de diseño, ejecución y mantenimiento de obras relacionadas a la ingeniería civil, mecánica y eléctrica.</p>
+            <div class="nosotros description">
+                <p>Somos una empresa líder en el campo de la Ingeniería y Arquitectura; nos dedicamos a la asesoría y gerencia de proyectos; y la realización de diseño, ejecución y mantenimiento de obras relacionadas a la ingeniería civil, mecánica y eléctrica.</p>
+
+            </div>
 
             <div class="container-card">
                 <div class="card">
@@ -79,18 +88,146 @@
                     <p>Alquiler de maquinarias pesadas</p>
                 </div>
             </div>
+            <div id="servicios-description">
+                <div id="servicios-description-box">
+                    <h3>Ingeniería a otro nivel</h3>
+                    <p>La ingeniería civil, un puente entre la ciencia y la sociedad, se ha transformado radicalmente en las últimas décadas. Hoy, la gestión eficaz de proyectos, la sostenibilidad y la innovación tecnológica son pilares fundamentales. Se comprende que la eficiencia reside en la importancia de integrar conocimientos técnicos profundos con habilidades gerenciales sólidas.</p>    
+                </div>
+                <img src="assets/servicios_imagen.jpeg" alt="Imagen en servicios">
+      
+    
+            </div>
         </section>
-        <section id="contacto">
+        <section id="proyectos">
             <h2>Proyectos recientes</h2>
+            <div class="carousel">
+                <div class="proyectos-button">
+                    <button class="control prev">&#8592;</button> <!-- Flecha izquierda -->
+                    <button class="control next">&#8594;</button> <!-- Flecha derecha -->
+                </div>
+                <div class="proyectos-container">
+                    <div class="proyecto-card">
+                        <div class="proyecto-info">
+                            <img src="assets/proyecto1.png" alt="Proyecto 1">
+                            <h3>Infraestructura de protección solar en las I.E. de la provincia de Chincha</h3>
+                        </div>
+                        <p>Región Ica - Item I, esta obra se ejecutó para el Gobierno Regional de Ica.</p>
+                    </div>
+                    <div class="proyecto-card">                
+                        <div class="proyecto-info">
+                            <img src="assets/proyecto2.png" alt="Proyecto 2">
+                            <h3>Sistema de Riego Macacona – Quilloay a suma alzada</h3>                    
+                        </div>
+                        <p>Para el Gobierno Regional de Ica. Funcional hasta la fecha.</p>
+                    </div>
+                    <div class="proyecto-card">                    
+                        <div class="proyecto-info">
+                            <img src="assets/proyecto3.png" alt="Proyecto 3">
+                            <h3>Proyecto adicional</h3>                          
+                        </div>
+                        <p>Descripción del proyecto adicional.</p>
+                    </div>
+                    <div class="proyecto-card">                      
+                        <div class="proyecto-info">
+                            <img src="assets/proyecto4.png" alt="Proyecto 4">
+                            <h3>Otro proyecto</h3>
+                        </div>
+                        <p>Descripción de otro proyecto.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-certificaciones">
+                <h3>Certificaciones</h3>   
+                <div class="certificaciones-button">
+                    <button class="control prev">&#8592;</button> <!-- Flecha izquierda -->
+                    <button class="control next">&#8594;</button> <!-- Flecha derecha -->
+                </div>
+                <div class="certificacion-container">
+                    <div class="certificacion-card">
+                        <img src="assets/certificacion1.png" alt="Proyecto 4">
+                    </div>
+                    <div class="certificacion-card">
+                        <img src="assets/certificacion2.png" alt="Proyecto 4">
+                    </div>
+                    <div class="certificacion-card">
+                        <img src="assets/certificacion3.png" alt="Proyecto 4">
+                    </div>
+                    <div class="certificacion-card">
+                        <img src="assets/certificacion4.png" alt="Proyecto 4">
+                    </div>
+                    <div class="certificacion-card">
+                        <img src="assets/certificacion5.png" alt="Proyecto 4">
+                    </div>
+
+                </div>
+
+            </div>
         </section>
+        
         <section id="socios">
             <h2>Nuestros socios</h2>
+
+            <p>Compartimos nuestro camino con socios del más alto prestigio, para mejorar cada día y brindarle a nuestros clientes el servicio adecuado.</p>   
+
+            <div class="socios-container">
+                <div class="socios-card">
+                    <img src="assets/socio1.png" alt="Icono Misión" class="icon">
+                </div>
+                <div class="socios-card">
+                    <img src="assets/socio2.png" alt="Icono Misión" class="icon">
+                </div>
+                <div class="socios-card">
+                    <img src="assets/socio3.png" alt="Icono Misión" class="icon">
+                </div>
+                <div class="socios-card">
+                    <img src="assets/socio4.png" alt="Icono Misión" class="icon">
+                </div>
+                <div class="socios-card">
+                    <img src="assets/socio5.png" alt="Icono Misión" class="icon">
+                </div>
+                <div class="socios-card">
+                    <img src="assets/socio6.png" alt="Icono Misión" class="icon">
+                </div>
+                <div class="socios-card">
+                    <img src="assets/socio7.png" alt="Icono Misión" class="icon">
+                </div>
+                <div class="socios-card">
+                    <img src="assets/socio8.png" alt="Icono Misión" class="icon">
+                </div>
+                <div class="socios-card">
+                    <img src="assets/socio9.png" alt="Icono Misión" class="icon">
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Mi Landing Page</p>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="assets/logo3.png" alt="Barlum Logo">
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>
+                    <span class="footer-icon">
+                        <img src="assets/phone_icon.svg" alt="Teléfono">
+                    </span> 
+                    01 4704597 / +51 988 614 336
+                </p>
+                <p>
+                    <span class="footer-icon">
+                        <img src="assets/email_icon.svg" alt="Correo">
+                    </span> 
+                    contacto@barlum.pe
+                </p>
+            </div>
+        </div>
     </footer>
+    
 
     <script src="script.js"></script>
 
