@@ -666,8 +666,6 @@ html{
     display: flex;
     gap: 10px; /* Espaciado entre botones */
     z-index: 10;
-    margin: 10px 90px;
-    margin: 25px;
     justify-content: flex-end;
 }
 
