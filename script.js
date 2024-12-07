@@ -2,9 +2,9 @@
 
 // Lista de imágenes de fondo
 const backgrounds = [
-    'assets/fondo1.png',
-    'assets/fondo2.png',
-    'assets/fondo3.png'
+    'assets/fondo1.jpg',
+    'assets/fondo2.jpg',
+    'assets/fondo3.jpg'
 ];
 
 let currentIndex = 0;
