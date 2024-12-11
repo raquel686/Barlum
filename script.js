@@ -1,29 +1,46 @@
 
-
-// Lista de imágenes de fondo
+// Lista de imágenes de fondo con textos
 const backgrounds = [
-    'assets/fondo1.jpg',
-    'assets/fondo2.jpg',
-    'assets/fondo3.jpg'
+    { image: 'assets/fondo1.jpg', text: 'Con más de 18 años de experiencia' },
+    { image: 'assets/fondo2.jpg', text: 'Construcciones eficientes' },
+    { image: 'assets/fondo3.jpg', text: 'En cada rincón del Perú' }
 ];
 
 let currentIndex = 0;
 
-// Función para cambiar el fondo
-function changeBackground() {
-   
-    const section = document.getElementById('inicio');
-    currentIndex = (currentIndex + 1) % backgrounds.length; // Incrementa y reinicia
-    section.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url(${backgrounds[currentIndex]})`;
-    section.style.backgroundSize = "cover";
-    section.style.backgroundPosition = "center";
-    section.style.backgroundRepeat = "no-repeat"; 
-
-
+// Precargar imágenes
+function preloadImages() {
+    backgrounds.forEach(bg => {
+        const img = new Image();
+        img.src = bg.image;
+    });
 }
 
-// Ejecuta el cambio de fondo cada 2 segundos
+// Función para cambiar el fondo y el texto con transición
+function changeBackground() {
+    const section = document.getElementById('inicio');
+    const textElement = document.querySelector('.footer-special .text');
+
+    // Incrementa y reinicia el índice
+    currentIndex = (currentIndex + 1) % backgrounds.length;
+
+    // Transición de texto
+    textElement.style.opacity = '0'; // Oculta el texto
+    setTimeout(() => {
+        textElement.textContent = backgrounds[currentIndex].text; // Cambia el texto
+        textElement.style.opacity = '1'; // Muestra el texto
+    }, 500); // Sincroniza con la transición
+
+    // Cambia el fondo con transición (CSS se encarga de la animación)
+    section.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url(${backgrounds[currentIndex].image})`;
+}
+
+// Precargar imágenes antes de iniciar
+preloadImages();
+
+// Ejecuta el cambio de fondo cada 3 segundos
 setInterval(changeBackground, 3000);
+
 
 
 
@@ -202,4 +219,5 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scrolled');
     }
 });
+
 
