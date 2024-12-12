@@ -43,9 +43,6 @@ setInterval(changeBackground, 3000);
 
 
 
-
-
-
 const carouselContainer = document.querySelector('.proyectos-container');
 const prevButton = document.querySelector('.control.prev');
 const nextButton = document.querySelector('.control.next');
@@ -53,20 +50,21 @@ const nextButton = document.querySelector('.control.next');
 // Variables de control
 let currentIndexCarr = 0;
 let visibleCards = window.innerWidth > 768 ? 2 : 1; // Determina cuántas tarjetas son visibles
-const totalCards = document.querySelectorAll('.proyecto-card').length;
 
-// Calcular el ancho de una tarjeta dinámica
-const cardWidth = document.querySelector('.proyecto-card').offsetWidth + 10; // Incluye el gap
+// Recalcula el ancho dinámico
+function getCardWidth() {
+    return document.querySelector('.proyecto-card').offsetWidth + 20; // Incluye margen (10px de cada lado)
+}
 
-// Actualizar el carrusel al deslizar
 function updateCarousel() {
+    const cardWidth = getCardWidth(); // Obtén el ancho dinámico de una tarjeta
     const offset = -(currentIndexCarr * cardWidth);
     carouselContainer.style.transform = `translateX(${offset}px)`;
 }
 
-// Actualizar el número de tarjetas visibles al redimensionar la ventana
 window.addEventListener('resize', () => {
     visibleCards = window.innerWidth > 768 ? 2 : 1; // Cambia el número de tarjetas visibles
+    currentIndexCarr = 0; // Reinicia el índice actual para evitar desplazamientos incorrectos
     updateCarousel();
 });
 
@@ -75,14 +73,14 @@ prevButton.addEventListener('click', () => {
     if (currentIndexCarr > 0) {
         currentIndexCarr--;
     } else {
-        currentIndexCarr = totalCards - visibleCards; // Vuelve al final
+        currentIndexCarr = document.querySelectorAll('.proyecto-card').length - visibleCards; // Vuelve al final
     }
     updateCarousel();
 });
 
 // Botón "next"
 nextButton.addEventListener('click', () => {
-    if (currentIndexCarr < totalCards - visibleCards) {
+    if (currentIndexCarr < document.querySelectorAll('.proyecto-card').length - visibleCards) {
         currentIndexCarr++;
     } else {
         currentIndexCarr = 0; // Vuelve al inicio
@@ -92,7 +90,6 @@ nextButton.addEventListener('click', () => {
 
 // Inicializar el carrusel
 updateCarousel();
-
 
 //Certificaciones
 

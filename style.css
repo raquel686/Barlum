@@ -307,7 +307,7 @@ html{
 
 
 .footer-special .whatsapp-icon img {
-    max-width: 100%; /* Asegura que las imágenes no se desborden */
+    width: 100px; /* Asegura que las imágenes no se desborden */
     height: auto; /* Mantiene la relación de aspecto */
 }
 /*
@@ -354,6 +354,10 @@ html{
         flex: 1 1 100%; /* Ocupa todo el ancho disponible */
         max-width: 100%;
     }
+    .footer-special .whatsapp-icon img {
+        width: 60px; /* Asegura que las imágenes no se desborden */
+        height: auto; /* Mantiene la relación de aspecto */
+    }
 }
 
 
@@ -397,6 +401,11 @@ html{
 .card img.icon {
     width: 130px;
     height: auto;
+}
+
+.mision-icon{
+    position: relative;
+    left: 7%;
 }
 
 .card h3 {
@@ -467,6 +476,17 @@ html{
     .servicios-list {
         flex-direction: column; /* Cambia a una sola columna */
     }
+
+    .card img.icon {
+        width: 100px;
+        height: auto;
+    }
+
+    .columna:first-child p:last-child {
+        margin-bottom: 0; /* Elimina el margen inferior del último párrafo de la primera columna */
+    }
+
+
 }
 
 
@@ -505,7 +525,7 @@ html{
     font-size: 1rem; /* Tamaño del texto */
     line-height: 1.6; /* Espaciado entre líneas */
     color: #333; /* Color del texto */
-    text-align: justify; /* Alineación justificada */
+    text-align: start; /* Alineación justificada */
 }
 
 
@@ -527,11 +547,12 @@ html{
 
     #servicios-description img {
         width: 100%; /* La imagen ocupa todo el ancho */
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
     }
 
     #servicios-description-box {
         width: 100%; /* El texto ocupa todo el ancho */
+        margin: 20px 0;
     }
 }
 
@@ -833,7 +854,6 @@ html{
 
 /* Contact Section */
 .footer-contact {
-    text-align: right;
 }
 
 .footer-contact h3 {
@@ -847,7 +867,6 @@ html{
     margin: 5px 0;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     gap: 10px;
 }
 
