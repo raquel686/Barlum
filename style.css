@@ -759,7 +759,6 @@ html{
     display: grid; /* Utiliza grid layout */
     grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
     gap: 20px; /* Espaciado entre los elementos */
-    padding: 20px 80px; /* Espaciado interno para el contenedor */
     justify-items: center; /* Centra los elementos horizontalmente */
     align-items: center; /* Centra los elementos verticalmente */
 }
