@@ -389,14 +389,14 @@ html{
     font-size: clamp(1.3rem, 5vw, 5rem);
 }
 
-.card {
+/* .card {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
     max-width: 300px;
     flex: 1;
     margin: 0 15px;
-}
+} */
 
 .card img.icon {
     width: 130px;
@@ -812,8 +812,17 @@ html{
     .socios-card {
         width: 200px; /* Reduce el tamaño de las tarjetas */
         height: 200px;
+        margin: auto;
     }
 }
+
+@supports (-webkit-touch-callout: none) {
+    .socios-card {
+        width: 200px; /* Reduce el tamaño de las tarjetas */
+        height: 200px;
+        margin: auto;
+    }
+  }
 
 
 /*footer*/
