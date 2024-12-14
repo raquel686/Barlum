@@ -320,7 +320,7 @@ html{
 
 .footer-special .text {
     font-weight: bold;
-    font-size: clamp(1.8rem, 5vw, 5rem);
+    font-size: clamp(1.4rem, 5vw, 5rem);
     opacity: 1; /* Comienza visible */
     transition: opacity 1s ease-in-out; /* Transición de opacidad */
 }
