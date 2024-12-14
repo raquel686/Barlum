@@ -1,5 +1,4 @@
-
-// Lista de imágenes de fondo con textos
+// Lista de imágenes y textos
 const backgrounds = [
     { image: 'assets/fondo1.jpg', text: 'Con más de 18 años de experiencia' },
     { image: 'assets/fondo2.jpg', text: 'Construcciones eficientes' },
@@ -8,39 +7,44 @@ const backgrounds = [
 
 let currentIndex = 0;
 
-// Precargar imágenes
-function preloadImages() {
-    backgrounds.forEach(bg => {
-        const img = new Image();
-        img.src = bg.image;
+// Crear capas de fondo dinámicamente
+function initializeBackgroundLayers() {
+    const section = document.getElementById('inicio');
+
+    backgrounds.forEach((bg, index) => {
+        const layer = document.createElement('div');
+        layer.classList.add('background-layer');
+        layer.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url(${bg.image})`;
+        if (index === 0) layer.classList.add('active'); // Hacer la primera visible
+        section.appendChild(layer);
     });
 }
 
-// Función para cambiar el fondo y el texto con transición
+// Cambiar la capa activa y el texto
 function changeBackground() {
-    const section = document.getElementById('inicio');
+    const layers = document.querySelectorAll('.background-layer');
     const textElement = document.querySelector('.footer-special .text');
 
-    // Incrementa y reinicia el índice
+    // Ocultar la capa actual
+    layers[currentIndex].classList.remove('active');
+
+    // Incrementar y reiniciar el índice
     currentIndex = (currentIndex + 1) % backgrounds.length;
 
-    // Transición de texto
-    textElement.style.opacity = '0'; // Oculta el texto
-    setTimeout(() => {
-        textElement.textContent = backgrounds[currentIndex].text; // Cambia el texto
-        textElement.style.opacity = '1'; // Muestra el texto
-    }, 500); // Sincroniza con la transición
+    // Mostrar la nueva capa
+    layers[currentIndex].classList.add('active');
 
-    // Cambia el fondo con transición (CSS se encarga de la animación)
-    section.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url(${backgrounds[currentIndex].image})`;
+    // Cambiar el texto con transición
+    textElement.style.opacity = '0'; // Ocultar texto
+    setTimeout(() => {
+        textElement.textContent = backgrounds[currentIndex].text; // Actualizar texto
+        textElement.style.opacity = '1'; // Mostrar texto
+    }, 500); // Sincronizar con la transición de opacidad
 }
 
-// Precargar imágenes antes de iniciar
-preloadImages();
-
-// Ejecuta el cambio de fondo cada 3 segundos
-setInterval(changeBackground, 3000);
-
+// Inicializar y ejecutar
+initializeBackgroundLayers();
+setInterval(changeBackground, 3500); 
 
 
 const carouselContainer = document.querySelector('.proyectos-container');
